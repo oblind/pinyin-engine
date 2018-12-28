@@ -4,7 +4,7 @@
  * @param	{string|[string]}    indexs       如果 data 为 [Object]，这里需要建立拼音索引 key
  * @param   {array}              dict         词典数据
  * @param   {?string}            prefix       如果 prefix 为 '$'，从开始字符匹配
- * @param   {?boolean}           mixed        如果 mixed 为 true，将启用中英文混合输入
+ * @param   {?boolean}           mixed        如果 mixed 为 true，将启用中英文混合查询
  */
 class Engine {
     constructor(data, indexs = [], dict = {}, prefix = '', mixed = false) {
