@@ -25,7 +25,8 @@ npm install pinyin-engine --save
 
 1. list `{[string]|[Object]}` 被索引的目标
 2. keys `{[string]}` 可选。如果 list 为 `Object`，这里用来设置需要被索引的 key
-3. begin `{[boolean]}` 可选。如果 begin 为 `true`，将执行前模糊检索
+3. begin `{boolean}` 可选。如果 begin 为 `true`，将执行前匹配检索
+4. mixed `{boolean}` 可选。如果 mixed 为 `true`，将启用中英文混合查询
 
 ### .query(keyword)
 

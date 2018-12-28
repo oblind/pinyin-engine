@@ -8,11 +8,12 @@ const DICT = decode(dict);
  * 拼音查询引擎
  * @param	{[string]|[Object]}	 data         数据
  * @param	{?string|[string]}   indexs       如果 data 为 [Object]，这里需要建立拼音索引 key
- * @param   {?boolean|[boolean]}  begin       如果 begin 为 true，从开始字符匹配
+ * @param   {?boolean|[boolean]} begin        如果 begin 为 true，从开始字符匹配
+ * @param   {?boolean}           mixed        如果 mixed 为 true，将启用中英文混合查询
  */
 class PinyinEngine extends Engine {
-    constructor(data, indexs, begin) {
-        super(data, indexs, DICT, (begin && '$'));
+    constructor(data, indexs, begin, mixed) {
+        super(data, indexs, DICT, begin ? '$' : undefined, mixed);
     }
 
     /**

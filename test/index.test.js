@@ -40,7 +40,7 @@ describe('PinyinEngine()', () => {
             ]);
             assert.deepEqual(['中央美院'], pinyinEngine.query('zymy'));
         });
-        it('应当支持前模糊', () => {
+        it('应当支持前匹配', () => {
             const pinyinEngine = new PinyinEngine([
                 '清华大学',
                 '北京大学',
@@ -48,6 +48,20 @@ describe('PinyinEngine()', () => {
             ], '', true);
             assert.notDeepEqual(['中央美院'], pinyinEngine.query('meiyuan'));
             assert.deepEqual(['中央美院'], pinyinEngine.query('zy'));
+        });
+        it('应当支持中英文混合输入', () => {
+            const pinyinEngine = new PinyinEngine([{
+                id: 1,
+                name: '清华大学'
+            }, {
+                id: 2,
+                name: 'B京大学',
+            }, {
+                id: 3,
+                name: '中央MY'
+            }], ['name'], false, true);
+            assert.deepEqual([{id: 2, name: 'B京大学'}], pinyinEngine.query('bj'));
+            assert.deepEqual([{id: 3, name: '中央MY'}], pinyinEngine.query('ym'));
         });
     });
 
